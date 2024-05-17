@@ -1,0 +1,226 @@
+[data-md-color-scheme="default"] {
+--md-code-bg-color: #ffffff;
+--pygments-bp: #00aaaa;
+--pygments-c: #aaaaaa;
+--pygments-c1: #aaaaaa;
+--pygments-ch: #aaaaaa;
+--pygments-cm: #aaaaaa;
+--pygments-cp: #4c8317;
+--pygments-cpf: #aaaaaa;
+--pygments-cs: #0000aa;
+--pygments-dl: #aa5500;
+--pygments-err: #FF0000;
+--pygments-fm: #00aa00;
+--pygments-gd: #aa0000;
+--pygments-gh: #000080;
+--pygments-gi: #00aa00;
+--pygments-go: #888888;
+--pygments-gp: #555555;
+--pygments-gr: #aa0000;
+--pygments-gt: #aa0000;
+--pygments-gu: #800080;
+--pygments-il: #009999;
+--pygments-k: #0000aa;
+--pygments-kc: #0000aa;
+--pygments-kd: #0000aa;
+--pygments-kn: #0000aa;
+--pygments-kp: #0000aa;
+--pygments-kr: #0000aa;
+--pygments-kt: #00aaaa;
+--pygments-m: #009999;
+--pygments-mb: #009999;
+--pygments-mf: #009999;
+--pygments-mh: #009999;
+--pygments-mi: #009999;
+--pygments-mo: #009999;
+--pygments-na: #1e90ff;
+--pygments-nb: #00aaaa;
+--pygments-nc: #00aa00;
+--pygments-nd: #888888;
+--pygments-nf: #00aa00;
+--pygments-ni: #880000;
+--pygments-nn: #00aaaa;
+--pygments-no: #aa0000;
+--pygments-nt: #1e90ff;
+--pygments-nv: #aa0000;
+--pygments-ow: #0000aa;
+--pygments-s: #aa5500;
+--pygments-s1: #aa5500;
+--pygments-s2: #aa5500;
+--pygments-sa: #aa5500;
+--pygments-sb: #aa5500;
+--pygments-sc: #aa5500;
+--pygments-sd: #aa5500;
+--pygments-se: #aa5500;
+--pygments-sh: #aa5500;
+--pygments-si: #aa5500;
+--pygments-sr: #009999;
+--pygments-ss: #0000aa;
+--pygments-sx: #aa5500;
+--pygments-vc: #aa0000;
+--pygments-vg: #aa0000;
+--pygments-vi: #aa0000;
+--pygments-vm: #aa0000;
+--pygments-w: #bbbbbb;
+}
+
+[data-md-color-scheme="slate"] {
+--md-code-bg-color: #0d1117;
+--pygments-bp: #e6edf3;
+--pygments-c: #8b949e;
+--pygments-c1: #8b949e;
+--pygments-ch: #8b949e;
+--pygments-cm: #8b949e;
+--pygments-cp: #8b949e;
+--pygments-cpf: #8b949e;
+--pygments-cs: #8b949e;
+--pygments-dl: #79c0ff;
+--pygments-err: #f85149;
+--pygments-esc: #e6edf3;
+--pygments-fm: #d2a8ff;
+--pygments-g: #e6edf3;
+--pygments-gd: #ffa198;
+--pygments-ge: #e6edf3;
+--pygments-ges: #e6edf3;
+--pygments-gh: #79c0ff;
+--pygments-gi: #56d364;
+--pygments-go: #8b949e;
+--pygments-gp: #8b949e;
+--pygments-gr: #ffa198;
+--pygments-gs: #e6edf3;
+--pygments-gt: #ff7b72;
+--pygments-gu: #79c0ff;
+--pygments-il: #a5d6ff;
+--pygments-k: #ff7b72;
+--pygments-kc: #79c0ff;
+--pygments-kd: #ff7b72;
+--pygments-kn: #ff7b72;
+--pygments-kp: #79c0ff;
+--pygments-kr: #ff7b72;
+--pygments-kt: #ff7b72;
+--pygments-l: #a5d6ff;
+--pygments-ld: #79c0ff;
+--pygments-m: #a5d6ff;
+--pygments-mb: #a5d6ff;
+--pygments-mf: #a5d6ff;
+--pygments-mh: #a5d6ff;
+--pygments-mi: #a5d6ff;
+--pygments-mo: #a5d6ff;
+--pygments-n: #e6edf3;
+--pygments-na: #e6edf3;
+--pygments-nb: #e6edf3;
+--pygments-nc: #f0883e;
+--pygments-nd: #d2a8ff;
+--pygments-ne: #f0883e;
+--pygments-nf: #d2a8ff;
+--pygments-ni: #ffa657;
+--pygments-nl: #79c0ff;
+--pygments-nn: #ff7b72;
+--pygments-no: #79c0ff;
+--pygments-nt: #7ee787;
+--pygments-nv: #79c0ff;
+--pygments-nx: #e6edf3;
+--pygments-o: #ff7b72;
+--pygments-ow: #ff7b72;
+--pygments-p: #e6edf3;
+--pygments-pm: #e6edf3;
+--pygments-py: #79c0ff;
+--pygments-s: #a5d6ff;
+--pygments-s1: #a5d6ff;
+--pygments-s2: #a5d6ff;
+--pygments-sa: #79c0ff;
+--pygments-sb: #a5d6ff;
+--pygments-sc: #a5d6ff;
+--pygments-sd: #a5d6ff;
+--pygments-se: #79c0ff;
+--pygments-sh: #79c0ff;
+--pygments-si: #a5d6ff;
+--pygments-sr: #79c0ff;
+--pygments-ss: #a5d6ff;
+--pygments-sx: #a5d6ff;
+--pygments-vc: #79c0ff;
+--pygments-vg: #79c0ff;
+--pygments-vi: #79c0ff;
+--pygments-vm: #79c0ff;
+--pygments-w: #6e7681;
+--pygments-x: #e6edf3;
+}
+
+.highlight .bp { color: var(--pygments-bp); }
+.highlight .c { color: var(--pygments-c); }
+.highlight .c1 { color: var(--pygments-c1); }
+.highlight .ch { color: var(--pygments-ch); }
+.highlight .cm { color: var(--pygments-cm); }
+.highlight .cp { color: var(--pygments-cp); }
+.highlight .cpf { color: var(--pygments-cpf); }
+.highlight .cs { color: var(--pygments-cs); }
+.highlight .dl { color: var(--pygments-dl); }
+.highlight .err { color: var(--pygments-err); }
+.highlight .esc { color: var(--pygments-esc); }
+.highlight .fm { color: var(--pygments-fm); }
+.highlight .g { color: var(--pygments-g); }
+.highlight .gd { color: var(--pygments-gd); }
+.highlight .ge { color: var(--pygments-ge); }
+.highlight .ges { color: var(--pygments-ges); }
+.highlight .gh { color: var(--pygments-gh); }
+.highlight .gi { color: var(--pygments-gi); }
+.highlight .go { color: var(--pygments-go); }
+.highlight .gp { color: var(--pygments-gp); }
+.highlight .gr { color: var(--pygments-gr); }
+.highlight .gs { color: var(--pygments-gs); }
+.highlight .gt { color: var(--pygments-gt); }
+.highlight .gu { color: var(--pygments-gu); }
+.highlight .il { color: var(--pygments-il); }
+.highlight .k { color: var(--pygments-k); }
+.highlight .kc { color: var(--pygments-kc); }
+.highlight .kd { color: var(--pygments-kd); }
+.highlight .kn { color: var(--pygments-kn); }
+.highlight .kp { color: var(--pygments-kp); }
+.highlight .kr { color: var(--pygments-kr); }
+.highlight .kt { color: var(--pygments-kt); }
+.highlight .l { color: var(--pygments-l); }
+.highlight .ld { color: var(--pygments-ld); }
+.highlight .m { color: var(--pygments-m); }
+.highlight .mb { color: var(--pygments-mb); }
+.highlight .mf { color: var(--pygments-mf); }
+.highlight .mh { color: var(--pygments-mh); }
+.highlight .mi { color: var(--pygments-mi); }
+.highlight .mo { color: var(--pygments-mo); }
+.highlight .n { color: var(--pygments-n); }
+.highlight .na { color: var(--pygments-na); }
+.highlight .nb { color: var(--pygments-nb); }
+.highlight .nc { color: var(--pygments-nc); }
+.highlight .nd { color: var(--pygments-nd); }
+.highlight .ne { color: var(--pygments-ne); }
+.highlight .nf { color: var(--pygments-nf); }
+.highlight .ni { color: var(--pygments-ni); }
+.highlight .nl { color: var(--pygments-nl); }
+.highlight .nn { color: var(--pygments-nn); }
+.highlight .no { color: var(--pygments-no); }
+.highlight .nt { color: var(--pygments-nt); }
+.highlight .nv { color: var(--pygments-nv); }
+.highlight .nx { color: var(--pygments-nx); }
+.highlight .o { color: var(--pygments-o); }
+.highlight .ow { color: var(--pygments-ow); }
+.highlight .p { color: var(--pygments-p); }
+.highlight .pm { color: var(--pygments-pm); }
+.highlight .py { color: var(--pygments-py); }
+.highlight .s { color: var(--pygments-s); }
+.highlight .s1 { color: var(--pygments-s1); }
+.highlight .s2 { color: var(--pygments-s2); }
+.highlight .sa { color: var(--pygments-sa); }
+.highlight .sb { color: var(--pygments-sb); }
+.highlight .sc { color: var(--pygments-sc); }
+.highlight .sd { color: var(--pygments-sd); }
+.highlight .se { color: var(--pygments-se); }
+.highlight .sh { color: var(--pygments-sh); }
+.highlight .si { color: var(--pygments-si); }
+.highlight .sr { color: var(--pygments-sr); }
+.highlight .ss { color: var(--pygments-ss); }
+.highlight .sx { color: var(--pygments-sx); }
+.highlight .vc { color: var(--pygments-vc); }
+.highlight .vg { color: var(--pygments-vg); }
+.highlight .vi { color: var(--pygments-vi); }
+.highlight .vm { color: var(--pygments-vm); }
+.highlight .w { color: var(--pygments-w); }
+.highlight .x { color: var(--pygments-x); }
