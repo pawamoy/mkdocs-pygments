@@ -7,12 +7,13 @@ import sys
 from contextlib import contextmanager
 from importlib.metadata import version as pkgversion
 from pathlib import Path
-from typing import TYPE_CHECKING, Iterator
+from typing import TYPE_CHECKING
 
-from duty import duty
-from duty.callables import coverage, lazy, mkdocs, mypy, pytest, ruff, safety
+from duty import duty, tools
 
 if TYPE_CHECKING:
+    from collections.abc import Iterator
+
     from duty.context import Context
 
 
@@ -51,13 +52,10 @@ def changelog(ctx: Context, bump: str = "") -> None:
     Parameters:
         bump: Bump option passed to git-changelog.
     """
-    from git_changelog.cli import main as git_changelog
-
-    args = [f"--bump={bump}"] if bump else []
-    ctx.run(git_changelog, args=[args], title="Updating changelog", command="git-changelog")
+    ctx.run(tools.git_changelog(bump=bump or None), title="Updating changelog")
 
 
-@duty(pre=["check_quality", "check_types", "check_docs", "check_dependencies", "check-api"])
+@duty(pre=["check-quality", "check-types", "check-docs", "check-api"])
 def check(ctx: Context) -> None:
     """Check it all!"""
 
@@ -66,26 +64,8 @@ def check(ctx: Context) -> None:
 def check_quality(ctx: Context) -> None:
     """Check the code quality."""
     ctx.run(
-        ruff.check(*PY_SRC_LIST, config="config/ruff.toml"),
+        tools.ruff.check(*PY_SRC_LIST, config="config/ruff.toml"),
         title=pyprefix("Checking code quality"),
-        command=f"ruff check --config config/ruff.toml {PY_SRC}",
-    )
-
-
-@duty
-def check_dependencies(ctx: Context) -> None:
-    """Check for vulnerabilities in dependencies."""
-    # retrieve the list of dependencies
-    requirements = ctx.run(
-        ["uv", "pip", "freeze"],
-        silent=True,
-        allow_overrides=False,
-    )
-
-    ctx.run(
-        safety.check(requirements),
-        title="Checking dependencies",
-        command="uv pip freeze | safety check --stdin",
     )
 
 
@@ -96,38 +76,33 @@ def check_docs(ctx: Context) -> None:
     Path("htmlcov/index.html").touch(exist_ok=True)
     with material_insiders():
         ctx.run(
-            mkdocs.build(strict=True, verbose=True),
+            tools.mkdocs.build(strict=True, verbose=True),
             title=pyprefix("Building documentation"),
-            command="mkdocs build -vs",
         )
 
 
 @duty
 def check_types(ctx: Context) -> None:
     """Check that the code is correctly typed."""
+    os.environ["FORCE_COLOR"] = "1"
     ctx.run(
-        mypy.run(*PY_SRC_LIST, config_file="config/mypy.ini"),
+        tools.mypy(*PY_SRC_LIST, config_file="config/mypy.ini"),
         title=pyprefix("Type-checking"),
-        command=f"mypy --config-file config/mypy.ini {PY_SRC}",
     )
 
 
 @duty
-def check_api(ctx: Context) -> None:
+def check_api(ctx: Context, *cli_args: str) -> None:
     """Check for API breaking changes."""
-    from griffe.cli import check as g_check
-
-    griffe_check = lazy(g_check, name="griffe.check")
     ctx.run(
-        griffe_check("mkdocs_pygments", search_paths=["src"], color=True),
+        tools.griffe.check("mkdocs_pygments", search=["src"], color=True).add_args(*cli_args),
         title="Checking for API breaking changes",
-        command="griffe check -ssrc mkdocs_pygments",
         nofail=True,
     )
 
 
 @duty
-def docs(ctx: Context, host: str = "127.0.0.1", port: int = 8000) -> None:
+def docs(ctx: Context, *cli_args: str, host: str = "127.0.0.1", port: int = 8000) -> None:
     """Serve the documentation (localhost:8000).
 
     Parameters:
@@ -136,24 +111,38 @@ def docs(ctx: Context, host: str = "127.0.0.1", port: int = 8000) -> None:
     """
     with material_insiders():
         ctx.run(
-            mkdocs.serve(dev_addr=f"{host}:{port}"),
+            tools.mkdocs.serve(dev_addr=f"{host}:{port}").add_args(*cli_args),
             title="Serving documentation",
             capture=False,
         )
 
 
 @duty
-def docs_deploy(ctx: Context) -> None:
-    """Deploy the documentation on GitHub pages."""
+def docs_deploy(ctx: Context, *, force: bool = False) -> None:
+    """Deploy the documentation to GitHub pages.
+
+    Parameters:
+        force: Whether to force deployment, even from non-Insiders version.
+    """
     os.environ["DEPLOY"] = "true"
     with material_insiders() as insiders:
         if not insiders:
             ctx.run(lambda: False, title="Not deploying docs without Material for MkDocs Insiders!")
-        origin = ctx.run("git config --get remote.origin.url", silent=True)
+        origin = ctx.run("git config --get remote.origin.url", silent=True, allow_overrides=False)
         if "pawamoy-insiders/mkdocs-pygments" in origin:
-            ctx.run("git remote add upstream git@github.com:pawamoy/mkdocs-pygments", silent=True, nofail=True)
             ctx.run(
-                mkdocs.gh_deploy(remote_name="upstream", force=True),
+                "git remote add upstream git@github.com:pawamoy/mkdocs-pygments",
+                silent=True,
+                nofail=True,
+                allow_overrides=False,
+            )
+            ctx.run(
+                tools.mkdocs.gh_deploy(remote_name="upstream", force=True),
+                title="Deploying documentation",
+            )
+        elif force:
+            ctx.run(
+                tools.mkdocs.gh_deploy(force=True),
                 title="Deploying documentation",
             )
         else:
@@ -168,22 +157,18 @@ def docs_deploy(ctx: Context) -> None:
 def format(ctx: Context) -> None:
     """Run formatting tools on the code."""
     ctx.run(
-        ruff.check(*PY_SRC_LIST, config="config/ruff.toml", fix_only=True, exit_zero=True),
+        tools.ruff.check(*PY_SRC_LIST, config="config/ruff.toml", fix_only=True, exit_zero=True),
         title="Auto-fixing code",
     )
-    ctx.run(ruff.format(*PY_SRC_LIST, config="config/ruff.toml"), title="Formatting code")
+    ctx.run(tools.ruff.format(*PY_SRC_LIST, config="config/ruff.toml"), title="Formatting code")
 
 
 @duty
 def build(ctx: Context) -> None:
     """Build source and wheel distributions."""
-    from build.__main__ import main as pyproject_build
-
     ctx.run(
-        pyproject_build,
-        args=[()],
+        tools.build(),
         title="Building source and wheel distributions",
-        command="pyproject-build",
         pty=PTY,
     )
 
@@ -191,16 +176,12 @@ def build(ctx: Context) -> None:
 @duty
 def publish(ctx: Context) -> None:
     """Publish source and wheel distributions to PyPI."""
-    from twine.cli import dispatch as twine_upload
-
     if not Path("dist").exists():
         ctx.run("false", title="No distribution files found")
     dists = [str(dist) for dist in Path("dist").iterdir()]
     ctx.run(
-        twine_upload,
-        args=[["upload", "-r", "pypi", "--skip-existing", *dists]],
-        title="Publish source and wheel distributions to PyPI",
-        command="twine upload -r pypi --skip-existing dist/*",
+        tools.twine.upload(*dists, skip_existing=True),
+        title="Publishing source and wheel distributions to PyPI",
         pty=PTY,
     )
 
@@ -227,16 +208,16 @@ def release(ctx: Context, version: str = "") -> None:
     ctx.run("git push --tags", title="Pushing tags", pty=False)
 
 
-@duty(silent=True, aliases=["coverage"])
-def cov(ctx: Context) -> None:
+@duty(silent=True, aliases=["cov"])
+def coverage(ctx: Context) -> None:
     """Report coverage as text and HTML."""
-    ctx.run(coverage.combine, nofail=True)
-    ctx.run(coverage.report(rcfile="config/coverage.ini"), capture=False)
-    ctx.run(coverage.html(rcfile="config/coverage.ini"))
+    ctx.run(tools.coverage.combine(), nofail=True)
+    ctx.run(tools.coverage.report(rcfile="config/coverage.ini"), capture=False)
+    ctx.run(tools.coverage.html(rcfile="config/coverage.ini"))
 
 
 @duty
-def test(ctx: Context, match: str = "") -> None:
+def test(ctx: Context, *cli_args: str, match: str = "") -> None:
     """Run the test suite.
 
     Parameters:
@@ -245,7 +226,11 @@ def test(ctx: Context, match: str = "") -> None:
     py_version = f"{sys.version_info.major}{sys.version_info.minor}"
     os.environ["COVERAGE_FILE"] = f".coverage.{py_version}"
     ctx.run(
-        pytest.run("-n", "auto", "tests", config_file="config/pytest.ini", select=match, color="yes"),
+        tools.pytest(
+            "tests",
+            config_file="config/pytest.ini",
+            select=match,
+            color="yes",
+        ).add_args("-n", "auto", *cli_args),
         title=pyprefix("Running tests"),
-        command=f"pytest -c config/pytest.ini -n auto -k{match!r} --color=yes tests",
     )
