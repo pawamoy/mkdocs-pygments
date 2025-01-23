@@ -28,7 +28,9 @@ classifiers = [
     "Topic :: Utilities",
     "Typing :: Typed",
 ]
-dependencies = []
+dependencies = [
+    "pygments>=2.19",
+]
 
 [project.urls]
 Homepage = "https://pawamoy.github.io/mkdocs-pygments"
