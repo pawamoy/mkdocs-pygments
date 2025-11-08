@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://pawamoy.github.io/mkdocs-pygments/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pawamoy.github.io/mkdocs-pygments/changelog/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pawamoy.github.io/mkdocs-pygments/code_of_conduct/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pawamoy.github.io/mkdocs-pygments/contributing/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pawamoy.github.io/mkdocs-pygments/credits/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pawamoy.github.io/mkdocs-pygments/license/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pawamoy.github.io/mkdocs-pygments/reference/api/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pawamoy.github.io/mkdocs-pygments/coverage/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+</urlset>

@@ -1,0 +1,1922 @@
+# MkDocs Pygments
+
+> Highlighting themes for code blocks.
+
+# Usage
+
+# MkDocs Pygments
+
+Highlighting themes for code blocks.
+
+## Installation
+
+```
+pip install mkdocs-pygments
+```
+
+## Usage
+
+Configure it in `mkdocs.yml`:
+
+```
+# mkdocs.yml
+plugins:
+- pygments:
+    light: autumn
+    dark: github-dark
+```
+
+To know which themes are available, you can either read our docs, or use a theme that doesn't exist, to abort the build with an error and a message listing the available themes:
+
+```
+# mkdocs.yml
+plugins:
+- pygments:
+    light: wodjweofijwqefd
+    dark: github-dark
+```
+
+```
+$ mkdocs serve
+INFO    -  Building documentation...
+INFO    -  Cleaning site directory
+ERROR   -  pygments: Unknown theme: 'wodjweofijwqefd'. Available themes:
+           abap, algol, algol_nu, arduino, autumn, bw, borland, coffee,
+           colorful, default, dracula, emacs, friendly_grayscale, friendly,
+           fruity, github-dark, gruvbox-dark, gruvbox-light, igor, inkpot,
+           lightbulb, lilypond, lovelace, manni, material, monokai, murphy,
+           native, nord-darker, nord, one-dark, paraiso-dark, paraiso-light,
+           pastie, perldoc, rainbow_dash, rrt, sas, solarized-dark,
+           solarized-light, staroffice, stata-dark, stata-light,
+           tango, trac, vim, vs, xcode, zenburn
+```
+
+______________________________________________________________________
+
+It's possible to instruct MkDocs Pygments to ignore the background color set by a theme, in order to make it work for both light and dark color schemes.
+
+For example, to use the `autumn` style (which is a light theme), for both light and dark schemes while adapting the background color:
+
+```
+# mkdocs.yml
+plugins:
+- pygments:
+    light: autumn
+    respect_light_background: true  # default value
+    dark: autumn
+    respect_dark_background: false
+```
+
+To use the `github-dark` style (which is a dark theme), for both light and dark schemes while adapting the background color:
+
+```
+# mkdocs.yml
+plugins:
+- pygments:
+    light: github-dark
+    respect_light_background: false
+    dark: github-dark
+```
+
+By default, the background color is respected, so you don't have to actually specify `respect_<light/dark>_background: true`.
+
+## Sponsors
+
+## Themes
+
+The left column respects the theme's background color. The right column ignores it and uses the background color of the current color scheme (default or slate). You will notice that some themes work well with both schemes, while others do not. To fix a specific theme, we invite users to create light or dark variants for this theme and send pull requests to [Pygments](https://github.com/pygments/pygments?tab=readme-ov-file) (please read their [contributing instructions](https://pygments.org/docs/contributing/)).
+
+You will also notice that for some themes, names, punctuation, operators or other kinds of tokens are very hard to see depending on the current color scheme (default or slate): it's because these themes do not define colors for names, punctuation, operators, etc., and these unstyled tokens then take the color set by the current color scheme and the selected theme of our own docs pages. To fix a specific theme, we invite users to open issues on [Pygments](https://github.com/pygments/pygments?tab=readme-ov-file) (please read their [contributing instructions](https://pygments.org/docs/contributing/)) to ask whether this theme could be improved by styling additional tokens, and to send pull requests if maintainers accept them.
+
+### abap
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### arduino
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### autumn
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### borland
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### coffee
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### colorful
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### default
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### dracula
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### emacs
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### friendly_grayscale
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### friendly
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### fruity
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### github-dark
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### gruvbox-dark
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### gruvbox-light
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### igor
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### inkpot
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### lightbulb
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### lilypond
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### lovelace
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### manni
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### material
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### monokai
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### murphy
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### native
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### nord-darker
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### nord
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### one-dark
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### paraiso-dark
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### paraiso-light
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### pastie
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### perldoc
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### rainbow_dash
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### rrt
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### sas
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### solarized-dark
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### solarized-light
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### staroffice
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### stata-dark
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### stata-light
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### tango
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### trac
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### vim
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### vs
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### xcode
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+### zenburn
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+
+```
+from typing import Iterator
+
+# This is an example
+class Math:
+    @staticmethod
+    def fib(n: int) -> Iterator[int]:
+        """Fibonacci series up to n."""
+        a, b = 0, 1
+        while a < n:
+            yield a
+            a, b = b, a + b
+
+result = sum(Math.fib(42))
+print(f"The answer is {result}")
+```
+# API
+
+# mkdocs_pygments
+
+MkDocs Pygments package.
+
+Highlighting themes for code blocks.
+
+Classes:
+
+- **`PygmentsConfig`** – Configuration options for the plugin.
+- **`PygmentsPlugin`** – The MkDocs plugin to inject Pygments style sheets.
+
+## PygmentsConfig
+
+Bases: `Config`
+
+Configuration options for the plugin.
+
+Attributes:
+
+- **`dark`** – A Pygments theme to use with dark mode.
+- **`light`** – A Pygments theme to use with light mode.
+- **`respect_dark_background`** – Whether to respect the background color of the dark theme.
+- **`respect_light_background`** – Whether to respect the background color of the light theme.
+
+### dark
+
+```
+dark = Type(str, default='material')
+```
+
+A Pygments theme to use with dark mode.
+
+### light
+
+```
+light = Type(str, default='material')
+```
+
+A Pygments theme to use with light mode.
+
+### respect_dark_background
+
+```
+respect_dark_background = Type(bool, default=True)
+```
+
+Whether to respect the background color of the dark theme.
+
+### respect_light_background
+
+```
+respect_light_background = Type(bool, default=True)
+```
+
+Whether to respect the background color of the light theme.
+
+## PygmentsPlugin
+
+```
+PygmentsPlugin()
+```
+
+Bases: `BasePlugin[PygmentsConfig]`
+
+The MkDocs plugin to inject Pygments style sheets.
+
+Methods:
+
+- **`on_config`** – Inject dark and light style sheets in extra_css.
+- **`on_post_build`** – Write the CSS contents to the injected style sheets.
+
+Attributes:
+
+- **`css_filename`** – The name of the CSS file to write.
+- **`styles`** – A mapping of available Pygments styles.
+
+Source code in `src/mkdocs_pygments/_internal/plugin.py`
+
+```
+def __init__(self):
+    """Initialize the plugin."""
+    self.styles = None
+    """A mapping of available Pygments styles."""
+```
+
+### css_filename
+
+```
+css_filename = 'pygments.css'
+```
+
+The name of the CSS file to write.
+
+### styles
+
+```
+styles = None
+```
+
+A mapping of available Pygments styles.
+
+### on_config
+
+```
+on_config(config: MkDocsConfig) -> MkDocsConfig | None
+```
+
+Inject dark and light style sheets in `extra_css`.
+
+Parameters:
+
+- **`config`** (`MkDocsConfig`) – The MkDocs config object.
+
+Returns:
+
+- `MkDocsConfig | None` – The config.
+
+Source code in `src/mkdocs_pygments/_internal/plugin.py`
+
+```
+def on_config(self, config: MkDocsConfig) -> MkDocsConfig | None:
+    """Inject dark and light style sheets in `extra_css`.
+
+    Arguments:
+        config: The MkDocs config object.
+
+    Returns:
+        The config.
+    """
+    self.styles = _get_styles()
+    config.extra_css.insert(0, self.css_filename)
+    return config
+```
+
+### on_post_build
+
+```
+on_post_build(config: MkDocsConfig, **kwargs: Any) -> None
+```
+
+Write the CSS contents to the injected style sheets.
+
+Parameters:
+
+- **`config`** (`MkDocsConfig`) – MkDocs configuration.
+
+Source code in `src/mkdocs_pygments/_internal/plugin.py`
+
+```
+def on_post_build(self, config: MkDocsConfig, **kwargs: Any) -> None:  # noqa: ARG002
+    """Write the CSS contents to the injected style sheets.
+
+    Parameters:
+        config: MkDocs configuration.
+    """
+    try:
+        light_css = _theme_css(
+            self.styles[self.config.light],
+            '[data-md-color-scheme="default"]',
+            respect_background=self.config.respect_light_background,
+        )
+        dark_css = _theme_css(
+            self.styles[self.config.dark],
+            '[data-md-color-scheme="slate"]',
+            respect_background=self.config.respect_dark_background,
+        )
+    except KeyError as error:
+        available = ", ".join(self.styles.keys())
+        raise PluginError(f"pygments: Unknown theme: {error}. Available themes: {available}") from error
+    css_contents = f"{light_css}\n\n{dark_css}\n\n{_pygments_css()}"
+    write_file(
+        css_contents.encode("utf-8"),
+        os.path.join(config.site_dir, self.css_filename.format(theme="base")),
+    )
+```

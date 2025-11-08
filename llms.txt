@@ -1,0 +1,12 @@
+# MkDocs Pygments
+
+> Highlighting themes for code blocks.
+
+## Usage
+
+- [Overview](https://pawamoy.github.io/mkdocs-pygments/index.md)
+
+## API
+
+- [API reference](https://pawamoy.github.io/mkdocs-pygments/reference/api/index.md)
+
