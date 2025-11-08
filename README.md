@@ -1,15 +1,17 @@
 # MkDocs Pygments
 
+[![ci](https://github.com/pawamoy/mkdocs-pygments/workflows/ci/badge.svg)](https://github.com/pawamoy/mkdocs-pygments/actions?query=workflow%3Aci)
 [![documentation](https://img.shields.io/badge/docs-mkdocs-708FCC.svg?style=flat)](https://pawamoy.github.io/mkdocs-pygments/)
-[![gitter](https://badges.gitter.im/join%20chat.svg)](https://app.gitter.im/#/room/#mkdocs-pygments:gitter.im)
+[![pypi version](https://img.shields.io/pypi/v/mkdocs-pygments.svg)](https://pypi.org/project/mkdocs-pygments/)
+[![gitter](https://img.shields.io/badge/matrix-chat-4DB798.svg?style=flat)](https://app.gitter.im/#/room/#mkdocs-pygments:gitter.im)
 
 Highlighting themes for code blocks.
 
 ## Installation
 
-This project is available to sponsors only, through my Insiders program.
-See Insiders [explanation](https://pawamoy.github.io/mkdocs-pygments/insiders/)
-and [installation instructions](https://pawamoy.github.io/mkdocs-pygments/insiders/installation/).
+```bash
+pip install mkdocs-pygments
+```
 
 ## Usage
 
@@ -84,3 +86,8 @@ plugins:
 
 By default, the background color is respected,
 so you don't have to actually specify `respect_<light/dark>_background: true`.
+
+## Sponsors
+
+<!-- sponsors-start -->
+<!-- sponsors-end -->

@@ -19,18 +19,11 @@ nav:
   - Changelog: changelog.md
   - Credits: credits.md
   - License: license.md
-# defer to gen-files + literate-nav
-- API reference:
-  - MkDocs Pygments: reference/
+- API reference: reference/api.md
 - Development:
   - Contributing: contributing.md
   - Code of Conduct: code_of_conduct.md
-  # - Coverage report: coverage.md
-- Insiders:
-  - insiders/index.md
-  - Getting started:
-    - Installation: insiders/installation.md
-    - Changelog: insiders/changelog.md
+  - Coverage report: coverage.md
 - Author's website: https://pawamoy.github.io/
 
 theme:
@@ -46,7 +39,8 @@ theme:
   - content.code.copy
   - content.tooltips
   - navigation.footer
-  - navigation.indexes
+  - navigation.instant.preview
+  - navigation.path
   - navigation.sections
   - navigation.tabs
   - navigation.tabs.sticky
@@ -77,7 +71,6 @@ theme:
 extra_css:
 - css/material.css
 - css/mkdocstrings.css
-- css/insiders.css
 
 extra_javascript:
 - js/feedback.js
@@ -107,23 +100,15 @@ markdown_extensions:
 
 plugins:
 - search
+- autorefs
 - markdown-exec
-- gen-files:
-    scripts:
-    - scripts/gen_ref_nav.py
-- literate-nav:
-    nav_file: SUMMARY.md
-# - coverage
-- pygments:
-    light: autumn
-    dark: github-dark
 - mkdocstrings:
     handlers:
-      python:
-        import:
+        inventories:
         - https://docs.python.org/3/objects.inv
         paths: [src]
         options:
+          backlinks: tree
           docstring_options:
             ignore_init_summary: true
           docstring_section_style: list
@@ -135,17 +120,27 @@ plugins:
           show_root_heading: true
           show_root_full_path: false
           show_signature_annotations: true
-          show_source: false
+          show_source: true
           show_symbol_type_heading: true
           show_symbol_type_toc: true
           signature_crossrefs: true
           summary: true
+- llmstxt:
+    full_output: llms-full.txt
+    sections:
+      Usage:
+      - index.md
+      API:
+      - reference/api.md
 - git-revision-date-localized:
     enabled: !ENV [DEPLOY, false]
     enable_creation_date: true
     type: timeago
 - minify:
     minify_html: !ENV [DEPLOY, false]
+- pygments:
+    light: autumn
+    dark: github-dark
 - group:
     enabled: !ENV [MATERIAL_INSIDERS, false]
     plugins:
