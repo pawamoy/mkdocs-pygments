@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.1.0](https://github.com/pawamoy/mkdocs-pygments/releases/tag/0.1.0) - 2025-11-09
+
+<small>[Compare with 0.0.2](https://github.com/pawamoy/mkdocs-pygments/compare/0.0.2...0.1.0)</small>
+
+### Features
+
+- Release Insiders project ([9860e38](https://github.com/pawamoy/mkdocs-pygments/commit/9860e3835dd7aeaa6fe3ed3deb9c3e0cb25422af) by Timothée Mazzucotelli).
+
 ## [0.0.2](https://github.com/pawamoy/mkdocs-pygments/releases/tag/0.0.2) - 2025-01-23
 
 <small>[Compare with 0.0.1](https://github.com/pawamoy/mkdocs-pygments/compare/0.0.1...0.0.2)</small>
