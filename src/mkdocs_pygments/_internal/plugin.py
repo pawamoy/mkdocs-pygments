@@ -1,5 +1,3 @@
-"""Configuration options for the MkDocs Manpage plugin."""
-
 from __future__ import annotations
 
 import os
@@ -22,7 +20,7 @@ if TYPE_CHECKING:
     from pygments.style import Style
 
 
-logger = get_plugin_logger(__name__)
+_logger = get_plugin_logger(__name__)
 
 
 def _get_styles() -> dict[str, type[Style]]:
@@ -62,19 +60,25 @@ class PygmentsConfig(BaseConfig):
     """Configuration options for the plugin."""
 
     light = MkType(str, default="material")
+    """A Pygments theme to use with light mode."""
     dark = MkType(str, default="material")
+    """A Pygments theme to use with dark mode."""
     respect_light_background = MkType(bool, default=True)
+    """Whether to respect the background color of the light theme."""
     respect_dark_background = MkType(bool, default=True)
+    """Whether to respect the background color of the dark theme."""
 
 
 class PygmentsPlugin(BasePlugin[PygmentsConfig]):
     """The MkDocs plugin to inject Pygments style sheets."""
 
     css_filename = "pygments.css"
+    """The name of the CSS file to write."""
 
     def __init__(self):
         """Initialize the plugin."""
         self.styles = None
+        """A mapping of available Pygments styles."""
 
     def on_config(self, config: MkDocsConfig) -> MkDocsConfig | None:
         """Inject dark and light style sheets in `extra_css`.

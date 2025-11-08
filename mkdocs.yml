@@ -102,6 +102,7 @@ plugins:
 - search
 - autorefs
 - markdown-exec
+- coverage
 - mkdocstrings:
     handlers:
       python:

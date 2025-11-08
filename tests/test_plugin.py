@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from mkdocs_pygments.plugin import _get_styles, _theme_css
+from mkdocs_pygments._internal.plugin import _get_styles, _theme_css
 
 if TYPE_CHECKING:
     from pygments.style import Style

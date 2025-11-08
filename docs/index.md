@@ -14,7 +14,7 @@ You will also notice that for some themes, names, punctuation, operators or othe
 
 ````python exec="1" idprefix=""
 import textwrap
-from mkdocs_pygments.plugin import _get_styles, _pygments_css, _theme_css
+from mkdocs_pygments._internal.plugin import _get_styles, _pygments_css, _theme_css
 
 styles = _get_styles()
 

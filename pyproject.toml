@@ -43,7 +43,7 @@ Gitter = "https://gitter.im/mkdocs-pygments/community"
 Funding = "https://github.com/sponsors/pawamoy"
 
 [project.entry-points."mkdocs.plugins"]
-pygments = "mkdocs_pygments.plugin:PygmentsPlugin"
+pygments = "mkdocs_pygments:PygmentsPlugin"
 
 [tool.pdm.version]
 source = "call"
