@@ -1,3 +1,21 @@
+# SPDX-License-Identifier: ISC
+#
+# ISC License
+#
+# Copyright (c) 2024, Timothée Mazzucotelli and contributors
+#
+# Permission to use, copy, modify, and/or distribute this software for any
+# purpose with or without fee is hereby granted, provided that the above
+# copyright notice and this permission notice appear in all copies.
+#
+# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+# WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+# ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+# WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+# ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+# OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
 from __future__ import annotations
 
 import os
@@ -77,7 +95,7 @@ class PygmentsPlugin(BasePlugin[PygmentsConfig]):
 
     def __init__(self):
         """Initialize the plugin."""
-        self.styles = None
+        self.styles: dict[str, type[Style]] = None  # ty:ignore[invalid-assignment]
         """A mapping of available Pygments styles."""
 
     def on_config(self, config: MkDocsConfig) -> MkDocsConfig | None:
@@ -116,5 +134,5 @@ class PygmentsPlugin(BasePlugin[PygmentsConfig]):
         css_contents = f"{light_css}\n\n{dark_css}\n\n{_pygments_css()}"
         write_file(
             css_contents.encode("utf-8"),
-            os.path.join(config.site_dir, self.css_filename.format(theme="base")),
+            os.path.join(config.site_dir, self.css_filename.format(theme="base")),  # noqa: PTH118
         )
