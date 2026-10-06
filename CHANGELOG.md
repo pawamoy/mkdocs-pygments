@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.1.1](https://github.com/pawamoy/mkdocs-pygments/releases/tag/0.1.1) - 2026-10-06
+
+<small>[Compare with 0.1.0](https://github.com/pawamoy/mkdocs-pygments/compare/0.1.0...0.1.1)</small>
+
+### Build
+
+- Drop support for Python 3.10 ([ff0831d](https://github.com/pawamoy/mkdocs-pygments/commit/ff0831d758b2347bdadf57b46f522fc540f3bd57) by Timothée Mazzucotelli).
+
 ## [0.1.0](https://github.com/pawamoy/mkdocs-pygments/releases/tag/0.1.0) - 2025-11-09
 
 <small>[Compare with 0.0.2](https://github.com/pawamoy/mkdocs-pygments/compare/0.0.2...0.1.0)</small>
